@@ -1,0 +1,10 @@
+.header{
+  height: 48px;
+  background: #c1f4fd;
+  vertical-align: center;
+}
+.header__title{
+  color: #ffffff;
+  font-size: 36px;
+  margin-left: 20px;
+}

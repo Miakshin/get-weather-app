@@ -1,0 +1,18 @@
+main{
+  background-color: #fbfbfb;
+  min-height: 100vh;
+}
+.weather{
+  margin: 0 20px;
+  background-color: #ffffff;
+}
+.weather__list{
+  list-style-type: none;
+  display: flex;
+}
+.weather__item{
+  height: 300px;
+  width: 200px;
+  margin: 20px;
+  border: 1px solid silver;
+}
