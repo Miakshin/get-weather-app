@@ -5,9 +5,10 @@ const cities = (state = initialState, action) => {
     return [
       ...state, action.city
     ]
-  }else if(action.type === 'REMOVE__CITY'){
+  }else if(action.type === 'REMOVE_CITY'){
     let newState = Object.assign([], state);
-    let index = newState.findIndex(item => item === action.city);
+    let index = newState.indexOf(action.city)
+    console.log(index, newState )
     if(index === -1){
       return state
     }else{

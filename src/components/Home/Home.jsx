@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getData } from '../../actions/index'
+import { getData, deleteCity, addCity } from '../../actions/index'
 import "./Home.css";
 
 import WeatherCard from './Weather-card/Weather-card';
@@ -15,7 +15,15 @@ import AddCard from './Add-card/Add-card';
 
   onAddCity(){
     let city = document.getElementById("city").value
-    console.log(city);
+    console.log(city)
+    const { dispatch } = this.props;
+    dispatch(addCity(city))
+  }
+
+  onDeleteCity(city){
+    const { dispatch } = this.props;
+    dispatch(deleteCity(city))
+    console.log(this.props.cityesStore)
   }
 
    render(){
@@ -24,7 +32,9 @@ import AddCard from './Add-card/Add-card';
        data =this.props.weatherDataStore.data.map((data,i) => {
         return(
           <li key={i} className="weather__item">
-           <WeatherCard weatherData = {data}/>
+           <WeatherCard
+            weatherData = {data}
+            deleteCity = {this.onDeleteCity.bind(this)}/>
          </li>
         )
       })
@@ -35,7 +45,7 @@ import AddCard from './Add-card/Add-card';
            <div className="weather">
              <ul className="weather__list">
                <li className="weather__item">
-                 <AddCard addCity={this.onAddCity} />
+                 <AddCard addCity={this.onAddCity.bind(this)} />
                </li>
                {data}
              </ul>

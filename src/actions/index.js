@@ -15,13 +15,41 @@ export function getData(cityes) {
 
       Promise.all([...promises])
       .then(res => {
-        console.log(res)
         dispatch({
           type: 'ADD_DATA',
           data: res
         });
       })
-
-
     }
   }
+
+export function deleteCity(city) {
+    console.log(city)
+    return dispatch => {
+      dispatch({
+        type: 'REMOVE_CITY',
+        city: city
+      });
+      dispatch({
+        type:  'DELETE_DATA_ITEM',
+        city: city
+      });
+    }
+  }
+
+  export function addCity(city) {
+    return dispatch =>{
+      dispatch({
+        type: 'LOAD_DATA_REQUESTED'
+      });
+      fetch(`${url}${city}${key}`)
+        .then(res =>res.json())
+        .then(resp =>{
+          let data = [resp]
+          dispatch({
+            type: 'ADD_DATA',
+            data: data
+          });
+        })
+      }
+    }

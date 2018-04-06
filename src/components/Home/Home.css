@@ -9,6 +9,7 @@ main{
 .weather__list{
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
 }
 .weather__item{
   height: 300px;

@@ -9,8 +9,9 @@ const weatherData = (state = initialState, action) => {
 
   }else if(action.type === 'ADD_DATA') {
     let newState = Object.assign({},state);
-    newState.loading = false
+    newState.loading = false;
     newState.data = [...state.data, ...action.data]
+    console.log(newState)
     return newState
 
   }else if(action.type === 'REFRESH_DATA_ITEM'){
@@ -24,12 +25,14 @@ const weatherData = (state = initialState, action) => {
     }
 
   }else if(action.type === 'DELETE_DATA_ITEM'){
+    console.log("helo from weather data")
     let newState = Object.assign([], state);
-    let index = newState.findIndex(item => item.city === action.city);
+    let index = newState.data.findIndex(item =>item.name === action.city);
+    console.log(index)
     if(index === -1){
       return state
     }else{
-      newState.splice(index,1);
+      newState.data.splice(index,1);
       return newState
     }
 

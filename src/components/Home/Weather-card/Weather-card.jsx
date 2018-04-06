@@ -17,7 +17,7 @@ export default function WeatherCard(props){
         </div>
         <footer className="weather-card__footer">
           <input type="button" value="more"/>
-          <input type="button" value="x"/>
+          <input type="button" value="x" onClick={()=>props.deleteCity(props.weatherData.name)}/>
         </footer>
       </article>
     )
