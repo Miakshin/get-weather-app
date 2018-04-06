@@ -14,6 +14,7 @@ export default function WeatherCard(props){
         <div className="weather-card__main">
           <span className={`sprite sprite-${props.weatherData.weather[0].icon}`}></span>
           <p>{props.weatherData.weather[0].description}</p>
+          <p>temp:{(+props.weatherData.main.temp - 271).toFixed(2)} &#176;C</p>
         </div>
         <footer className="weather-card__footer">
           <input type="button" value="more"/>

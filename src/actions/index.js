@@ -20,8 +20,15 @@ export function getData(cityes) {
           data: res
         });
       })
+      .catch(err=>{
+        dispatch({
+          type: 'CATCH_DATA_ERR',
+          err: err
+        })
+      })
     }
   }
+
 
 export function deleteCity(city) {
     console.log(city)
@@ -50,6 +57,12 @@ export function deleteCity(city) {
             type: 'ADD_DATA',
             data: data
           });
+        })
+        .catch(err=>{
+          dispatch({
+            type: 'CATCH_DATA_ERR',
+            err: err
+          })
         })
       }
     }

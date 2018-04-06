@@ -35,7 +35,8 @@ const weatherData = (state = initialState, action) => {
       newState.data.splice(index,1);
       return newState
     }
-
+  }else if(action.type ==='CATCH_DATA_ERR'){
+    return {loading: true, data: [], errors: action.err}
   }else{
       return state
   }

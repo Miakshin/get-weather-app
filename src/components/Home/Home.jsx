@@ -14,10 +14,15 @@ import AddCard from './Add-card/Add-card';
   }
 
   onAddCity(){
-    let city = document.getElementById("city").value
-    console.log(city)
-    const { dispatch } = this.props;
-    dispatch(addCity(city))
+    let city = document.getElementById("city").value.toLowerCase()
+    city = city[0].toUpperCase() + city.slice(1);
+    if(this.props.cityesStore.indexOf(city) === -1){
+      const { dispatch } = this.props;
+      dispatch(addCity(city));
+      document.getElementById("city").value = ""
+    }else{
+      console.log("already exist")
+    }
   }
 
   onDeleteCity(city){
