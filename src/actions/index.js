@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const url = "http://api.openweathermap.org/data/2.5/weather?q=";
 const key = "&APPID=1cad821d83d79985ccf382aaa195ade5";
 
@@ -9,14 +11,15 @@ export function getData(cityes) {
 
       let promises = [];
       cityes.forEach(city => {
-        let promise = fetch(`${url}${city}${key}`).then(res => res.json())
+        let promise = axios.get(`${url}${city}${key}`).then(res=> res.data)
         promises.push(promise)
       })
 
       Promise.all([...promises])
       .then(res => {
+        console.log(res)
         dispatch({
-          type: 'ADD_DATA',
+          type: 'ADD_INITIAL_DATA',
           data: res
         });
       })
@@ -49,10 +52,9 @@ export function deleteCity(city) {
       dispatch({
         type: 'LOAD_DATA_REQUESTED'
       });
-      fetch(`${url}${city}${key}`)
-        .then(res =>res.json())
-        .then(resp =>{
-          let data = [resp]
+      axios.get(`${url}${city}${key}`)
+        .then(res =>{
+          let data = [res.data]
           dispatch({
             type: 'ADD_DATA',
             data: data
@@ -61,6 +63,28 @@ export function deleteCity(city) {
         .catch(err=>{
           dispatch({
             type: 'CATCH_DATA_ERR',
+            err: err
+          })
+        })
+      }
+    }
+
+    export function getDetailData(city){
+      return dispatch =>{
+        dispatch({
+          type: 'LOAD_DETAIL_DATA_REQUESTED'
+        });
+
+        axios.get(`${url}${city}${key}`)
+        .then(res => {
+          dispatch({
+            type: 'LOAD_DETAIL_DATA',
+            data: res.data
+          });
+        })
+        .catch(err=>{
+          dispatch({
+            type: 'LOAD_DETAIL_ERR',
             err: err
           })
         })

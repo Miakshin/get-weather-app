@@ -15,7 +15,28 @@
   background-color: #f3f3f3;
 }
 .weather-card__main{
-  height: 200px;
+  height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.weather-card__temp{
+  width: 50%;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 400;
+}
+.weather-card__description{
+  width: 90%;
+  text-align: center;
+}
+.weather-card__ico{
+  width: 50%;
+  display: inline-block;
+}
+.weather-card__ico span{
+  margin: auto;
 }
 /* icons */
 .sprite {

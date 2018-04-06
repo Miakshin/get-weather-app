@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import "./Weather-card.css";
 
@@ -12,12 +13,14 @@ export default function WeatherCard(props){
           </h2>
         </header>
         <div className="weather-card__main">
-          <span className={`sprite sprite-${props.weatherData.weather[0].icon}`}></span>
-          <p>{props.weatherData.weather[0].description}</p>
-          <p>temp:{(+props.weatherData.main.temp - 271).toFixed(2)} &#176;C</p>
+          <div className="weather-card__ico">
+            <span className={`sprite sprite-${props.weatherData.weather[0].icon}`}></span>
+          </div>
+          <p className="weather-card__temp">{(+props.weatherData.main.temp - 273).toFixed(2)} &#176;C</p>
+          <p className="weather-card__description">{props.weatherData.weather[0].description}</p>
         </div>
         <footer className="weather-card__footer">
-          <input type="button" value="more"/>
+          <Link to={`/details/${props.weatherData.name}`}>More info</Link>
           <input type="button" value="x" onClick={()=>props.deleteCity(props.weatherData.name)}/>
         </footer>
       </article>

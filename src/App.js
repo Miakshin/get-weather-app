@@ -6,7 +6,8 @@ import Details from './components/Details/Details'
 const App = () => (
     <div>
       <Route exact path="/" component={Home} />
-      <Route exact path="/details" component={Details} />
+      <Route path='/home' component={Home} />
+      <Route path="/details/:city" component={Details} />
     </div>
 );
 

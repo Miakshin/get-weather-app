@@ -7,10 +7,6 @@ import App from './App';
 
 import './index.css';
 
-console.log(Provider)
-console.log(ConnectedRouter)
-
-
 const target = document.querySelector('#root');
 
 render(
