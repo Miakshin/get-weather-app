@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getData, deleteCity, addCity } from '../../actions/index'
 import "./Home.css";
 
+import Header from '../Header/Header';
 import WeatherCard from './Weather-card/Weather-card';
 import AddCard from './Add-card/Add-card';
 
@@ -46,16 +47,20 @@ import AddCard from './Add-card/Add-card';
     }else data = <div> loading </div>
 
      return (
-         <main>
-           <div className="weather">
-             <ul className="weather__list">
-               <li className="weather__item">
-                 <AddCard addCity={this.onAddCity.bind(this)} />
-               </li>
-               {data}
-             </ul>
-           </div>
-         </main>)
+       <div>
+        <Header />
+        <main>
+          <div className="weather">
+            <ul className="weather__list">
+              <li className="weather__item">
+                <AddCard addCity={this.onAddCity.bind(this)} />
+              </li>
+              {data}
+            </ul>
+          </div>
+        </main>
+       </div>
+      )
    }
 
 }
