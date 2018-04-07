@@ -33,7 +33,6 @@ export function getData(cityes) {
 
 
 export function deleteCity(city) {
-    console.log(city)
     return dispatch => {
       dispatch({
         type: 'REMOVE_CITY',

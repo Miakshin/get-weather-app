@@ -13,9 +13,7 @@ class Details extends React.Component{
   }
 
   getTime(time){
-    console.log(time);
     let date = new Date(time)
-    console.log(date)
     let hours = date.getHours();
     let minets = date.getMinutes();
     return (`${hours}:${minets}`)
@@ -23,7 +21,6 @@ class Details extends React.Component{
 
   render(){
     const data = this.props.details.data
-    console.log(data)
     if(data.main){
       return (
         <div>
