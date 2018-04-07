@@ -9,11 +9,11 @@ export default function addCard(props){
         <h2 className="weather-card-create__header">Add new card</h2>
       </header>
       <div className="weather-card-create__main">
-        <label>City:</label>
-        <input type="text" id="city"/>
+        <label className="weather-card-create__label">Input your city:</label>
+        <input type="text" id="city" className="weather-card-create__input"/>
       </div>
       <footer className="weather-card-create__footer">
-        <input  type="button" value="add" onClick={props.addCity}/>
+        <input  type="button" value="Add" className="add-item-bitton" onClick={props.addCity}/>
       </footer>
     </div>
   )

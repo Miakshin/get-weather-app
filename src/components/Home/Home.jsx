@@ -32,6 +32,10 @@ import AddCard from './Add-card/Add-card';
     console.log(this.props.cityesStore)
   }
 
+  onRefreshCity(city){
+    console.log(city)
+  }
+
    render(){
      let data
      if(this.props.weatherDataStore.data){
@@ -40,7 +44,8 @@ import AddCard from './Add-card/Add-card';
           <li key={i} className="weather__item">
            <WeatherCard
             weatherData = {data}
-            deleteCity = {this.onDeleteCity.bind(this)}/>
+            deleteCity = {this.onDeleteCity.bind(this)}
+            refreshCity={this.onRefreshCity.bind(this)}/>
          </li>
         )
       })

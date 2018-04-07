@@ -21,7 +21,10 @@ export default function WeatherCard(props){
         </div>
         <footer className="weather-card__footer">
           <Link to={`/details/${props.weatherData.name}`}>More info</Link>
-          <input type="button" value="x" onClick={()=>props.deleteCity(props.weatherData.name)}/>
+          <div className="weather-card__footer-buttons">
+            <input type="button" className="icon refresh" onClick={()=>props.refreshCity(props.weatherData.name)}/>
+            <input type="button" className="icon delete" onClick={()=>props.deleteCity(props.weatherData.name)}/>
+          </div>
         </footer>
       </article>
     )

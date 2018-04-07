@@ -12,6 +12,15 @@ class Details extends React.Component{
     this.props.dispatch(getDetailData(this.props.match.params.city))
   }
 
+  getTime(time){
+    console.log(time);
+    let date = new Date(time)
+    console.log(date)
+    let hours = date.getHours();
+    let minets = date.getMinutes();
+    return (`${hours}:${minets}`)
+  }
+
   render(){
     const data = this.props.details.data
     console.log(data)
@@ -20,18 +29,38 @@ class Details extends React.Component{
         <div>
         <Header />
           <article className="details">
-            <h2 className="details__title">Current weather in {data.name}</h2>
+            <h2 className="details__title">Current weather in {data.name}, {data.sys.country}</h2>
+            <div className="detail__item_main">
+              <div className="item-main">
+                <span className={`sprite sprite-${data.weather[0].icon}`}></span>
+                <p className="item-main__temp">{(data.main.temp - 273).toFixed(2)} &#176;C</p>
+                <p className="item-main__description">{data.weather[0].description}</p>
+                <p className="item-main__pressure">pressure: {(data.main.pressure - 270)}</p>
+                <p className="item-main__humidity">humidity: {data.main.humidity}%</p>
+                <p className="item-main__wind">wind: {data.wind.speed} m/s
+                  <span className="arrow" style={{transform: `rotate(${data.wind.deg}deg)`}}>&uArr;</span>
+                  </p>
+              </div>
+            </div>
             <div className="detail__item">
-              <h3>Tempetcher</h3>
-              <ul>
+              <h3 className="detail__item-title">Temperature</h3>
+              <ul className="detail__item-list">
                 <li>current: {(+data.main.temp - 273).toFixed(2)}&#176;C</li>
                 <li>min: {(+data.main.temp_min - 273).toFixed(2)}&#176;C</li>
                 <li>max: {(+data.main.temp_max - 273).toFixed(2)}&#176;C</li>
               </ul>
             </div>
             <div className="detail__item">
+              <h3 className="detail__item-title">Another</h3>
+              <ul className="detail__item-list">
+                <li>sunrise at {this.getTime(data.sys.sunrise)}</li>
+                <li>sunset at {this.getTime(data.sys.sunrise)}</li>
+                <li>max: {(+data.main.temp_max - 273).toFixed(2)}&#176;C</li>
+              </ul>
             </div>
-            <Link to='/'>Back</Link>
+            <footer className="details__footer">
+              <Link to='/'>Back</Link>
+            </footer>
           </article>
         </div>
       )
