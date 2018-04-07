@@ -8,7 +8,6 @@ const cities = (state = initialState, action) => {
   }else if(action.type === 'REMOVE_CITY'){
     let newState = Object.assign([], state);
     let index = newState.indexOf(action.city)
-    console.log(index, newState )
     if(index === -1){
       return state
     }else{

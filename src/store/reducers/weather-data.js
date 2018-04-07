@@ -30,7 +30,6 @@ const weatherData = (state = initialState, action) => {
     }
 
   }else if(action.type === 'DELETE_DATA_ITEM'){
-    console.log("helo from weather data")
     let newState = Object.assign([], state);
     let index = newState.data.findIndex(item =>item.name === action.city);
     if(index === -1){
