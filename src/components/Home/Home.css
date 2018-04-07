@@ -19,3 +19,18 @@ main{
   margin: 20px;
   border: 1px solid silver;
 }
+.errorSpan{
+  display: block;
+  background-color: rgba(0,0,0, 0.6);
+  color: white;
+  border-radius: 7px;
+  font-size: 12px;
+  height: 26px;
+  text-align: center;
+  padding: 12px 10px 0px 10px;
+  margin: 0 50%;
+  position: fixed;
+  top: 40%;
+  width: 200px;
+  transform:  translate(-50%);
+}

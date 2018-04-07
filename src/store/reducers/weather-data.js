@@ -11,14 +11,12 @@ const weatherData = (state = initialState, action) => {
     let newState = Object.assign({},state);
     newState.loading = false;
     newState.data = [...state.data, ...action.data]
-    console.log(newState)
     return newState
 
   }else if(action.type === 'ADD_INITIAL_DATA'){
     let newState = Object.assign({},state);
     newState.loading = false;
     newState.data = [...action.data]
-    console.log(newState)
     return newState
 
   }else if(action.type === 'REFRESH_DATA_ITEM'){
@@ -35,7 +33,6 @@ const weatherData = (state = initialState, action) => {
     console.log("helo from weather data")
     let newState = Object.assign([], state);
     let index = newState.data.findIndex(item =>item.name === action.city);
-    console.log(index)
     if(index === -1){
       return state
     }else{

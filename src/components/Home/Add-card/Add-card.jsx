@@ -4,7 +4,6 @@ import "./Add-card.css";
 import AddCardFooter from './Add-card-footer'
 
 export default function addCard(props){
-  console.log(AddCardFooter)
   return(
     <div className="weather-card-create">
       <header className="weather-card-create__header">

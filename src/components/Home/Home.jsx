@@ -22,20 +22,34 @@ import AddCard from './Add-card/Add-card';
         this.props.dispatch(addCity(city));
         document.getElementById("city").value = ""
       }else{
-        console.log("already exist")
+        this.printErrorMasage("This city allready added")
       }
     }
   }
 
   onDeleteCity(city){
     this.props.dispatch(deleteCity(city))
-    console.log(this.props.cityesStore)
   }
 
   onRefreshCity(city){
     this.props.dispatch(refreshCity(city))
-    console.log("ferreshing")
   }
+
+  printErrorMasage(err){
+
+  if(!document.querySelector(".errorSpan")){
+
+  let perent = document.querySelector(".weather");
+  let list =  document.querySelector(".weather__list");
+  let span = document.createElement("span");
+  span.innerHTML = err;
+  span.className = "errorSpan";
+  perent.insertBefore(span, list.nextSibling);
+  setTimeout(
+    ()=>{perent.removeChild(document.getElementsByClassName("errorSpan")[0])},
+     3000);
+  }
+}
 
    render(){
      let data

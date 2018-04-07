@@ -10,10 +10,9 @@ const detail = (state = initialState, action) => {
     let newState = Object.assign({},state);
     newState.loading = false;
     newState.data = Object.assign({},action.data)
-    console.log(newState)
     return newState
   }else if(action.type ==='LOAD_DETAIL_ERR'){
-    return {loading: true, data: [], errors: action.err}
+    return {loading: true, data: {}, errors: action.err}
   }else{
       return state
   }

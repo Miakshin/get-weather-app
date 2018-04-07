@@ -17,7 +17,6 @@ export function getData(cityes) {
 
       Promise.all([...promises])
       .then(res => {
-        console.log(res)
         dispatch({
           type: 'ADD_INITIAL_DATA',
           data: res
