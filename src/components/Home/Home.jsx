@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getData, deleteCity, addCity } from '../../actions/index'
+import { getData, deleteCity, addCity , refreshCity} from '../../actions/index'
 import "./Home.css";
 
 import Header from '../Header/Header';
@@ -15,25 +15,26 @@ import AddCard from './Add-card/Add-card';
   }
 
   onAddCity(){
-    let city = document.getElementById("city").value.toLowerCase()
-    city = city[0].toUpperCase() + city.slice(1);
-    if(this.props.cityesStore.indexOf(city) === -1){
-      const { dispatch } = this.props;
-      dispatch(addCity(city));
-      document.getElementById("city").value = ""
-    }else{
-      console.log("already exist")
+    if(document.getElementById("city").value.length > 0){
+      let city = document.getElementById("city").value.toLowerCase()
+      city = city[0].toUpperCase() + city.slice(1);
+      if(this.props.cityesStore.indexOf(city) === -1){
+        this.props.dispatch(addCity(city));
+        document.getElementById("city").value = ""
+      }else{
+        console.log("already exist")
+      }
     }
   }
 
   onDeleteCity(city){
-    const { dispatch } = this.props;
-    dispatch(deleteCity(city))
+    this.props.dispatch(deleteCity(city))
     console.log(this.props.cityesStore)
   }
 
   onRefreshCity(city){
-    console.log(city)
+    this.props.dispatch(refreshCity(city))
+    console.log("ferreshing")
   }
 
    render(){

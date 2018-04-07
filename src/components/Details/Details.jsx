@@ -65,7 +65,14 @@ class Details extends React.Component{
         </div>
       )
     }else{
-      return (<div> Loading..</div>)
+      return (
+        <div>
+          <Header />
+          <article className="details">
+            <div className="loading"> Loading..</div>
+          </article>
+        </div>
+        )
     }
   }
 }

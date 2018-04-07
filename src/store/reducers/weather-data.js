@@ -23,11 +23,11 @@ const weatherData = (state = initialState, action) => {
 
   }else if(action.type === 'REFRESH_DATA_ITEM'){
     let newState = Object.assign({}, state);
-    let index = newState.findIndex(item => item.city === action.data.city);
+    let index = newState.findIndex(item => item.name === action.data.name);
     if(index === -1){
       return state
     }else{
-      newState[index] = action.data;
+      newState[index] = [...action.data];
       return newState;
     }
 

@@ -51,6 +51,9 @@
   font-weight: 600;
   text-decoration: none;
 }
+.loading{
+  margin: 30px auto;
+}
 /* icons */
 .icon{
   border: 0px;

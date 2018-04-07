@@ -50,7 +50,7 @@ export function deleteCity(city) {
   export function addCity(city) {
     return dispatch =>{
       dispatch({
-        type: 'LOAD_DATA_REQUESTED'
+        type: 'INPUT_REQUESTING'
       });
       axios.get(`${url}${city}${key}`)
         .then(res =>{
@@ -60,14 +60,46 @@ export function deleteCity(city) {
             data: data
           });
         })
+        .then(()=>{
+          dispatch({
+            type: 'ADD_CITY',
+            city: city
+          })
+          dispatch({
+            type: "INPUT_REQUESTED"
+          })
+        })
         .catch(err=>{
           dispatch({
-            type: 'CATCH_DATA_ERR',
+            type: 'INPUT_REQUESTED_ERR',
             err: err
           })
         })
       }
     }
+
+      export function refreshCity(city) {
+        return dispatch =>{
+          dispatch({
+            type: 'LOAD_DATA_REQUESTED'
+          });
+          axios.get(`${url}${city}${key}`)
+            .then(res =>{
+              let data = [res.data]
+              dispatch({
+                type: 'REFRESH_DATA_ITEM',
+                data: data,
+                city: city
+              });
+            })
+            .catch(err=>{
+              dispatch({
+                type: 'CATCH_DATA_ERR',
+                err: err
+              })
+            })
+          }
+        }
 
     export function getDetailData(city){
       return dispatch =>{

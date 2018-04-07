@@ -11,7 +11,9 @@
 ..weather-card-create__title{
   font-size: 28px;
 }
-.weather-card-create__footer{
+.weather-card-create__footer,
+.weather-card-create__footer_loading,
+.weather-card-create__footer-err{
   height: 40px;
   background-color: #f3f3f3;
 }
@@ -41,4 +43,26 @@
 .weather-card-create__label{
   font-weight: 500;
   margin-left: 10px;
+}
+.weather-card-create__footer_loading{
+
+  text-align: center;
+  font-size: 24px;
+  font-size: 500;
+  color: #ffffff;
+}
+.weather-card-create__footer-err{
+  display: flex;
+  text-align: center;
+  font-size: 24px;
+  font-size: 500;
+}
+.weather-card-create__footer-err a{
+  max-width: 40%;
+}
+.weather-card-create__footer-err p{
+  max-width: 60%;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }

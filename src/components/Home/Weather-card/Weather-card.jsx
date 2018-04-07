@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import "./Weather-card.css";
 
 export default function WeatherCard(props){
-  if(props){
+  if(props.weatherData){
     return(
       <article className="weather-card">
         <header className="weather-card__header">
@@ -29,6 +29,6 @@ export default function WeatherCard(props){
       </article>
     )
   }else{
-    return <div>liading</div>
+    return (<div className="loading">liading</div>)
   }
 }

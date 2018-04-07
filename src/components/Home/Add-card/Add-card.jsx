@@ -1,8 +1,10 @@
 import React from 'react';
 
 import "./Add-card.css";
+import AddCardFooter from './Add-card-footer'
 
 export default function addCard(props){
+  console.log(AddCardFooter)
   return(
     <div className="weather-card-create">
       <header className="weather-card-create__header">
@@ -12,9 +14,7 @@ export default function addCard(props){
         <label className="weather-card-create__label">Input your city:</label>
         <input type="text" id="city" className="weather-card-create__input"/>
       </div>
-      <footer className="weather-card-create__footer">
-        <input  type="button" value="Add" className="add-item-bitton" onClick={props.addCity}/>
-      </footer>
+      <AddCardFooter addCity={props.addCity}/>
     </div>
   )
 }
