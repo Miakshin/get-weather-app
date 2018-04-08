@@ -13,7 +13,7 @@ class Details extends React.Component{
   }
 
   getTime(time){
-    let date = new Date(time)
+    let date = new Date(time*1000)
     let hours = date.getHours();
     let minets = date.getMinutes();
     return (`${hours}:${minets}`)
@@ -51,7 +51,7 @@ class Details extends React.Component{
               <h3 className="detail__item-title">Another</h3>
               <ul className="detail__item-list">
                 <li>sunrise at {this.getTime(data.sys.sunrise)}</li>
-                <li>sunset at {this.getTime(data.sys.sunrise)}</li>
+                <li>sunset at {this.getTime(data.sys.sunset)}</li>
                 <li>max: {(+data.main.temp_max - 273).toFixed(2)}&#176;C</li>
               </ul>
             </div>
