@@ -5,15 +5,16 @@
 }
 .weather-card__header{
   height: 60px;
-  background-color: #f3f3f3;
+  background-color: #388fa3;
   text-align: center;
 }
-..weather-card__title{
-  font-size: 28px;
+.weather-card__title{
+  font-size: 22px;
+  color: #ffffff;
 }
 .weather-card__footer{
   height: 40px;
-  background-color: #f3f3f3;
+  background-color: #388fa3;
 }
 .weather-card__main{
   height: 120px;
